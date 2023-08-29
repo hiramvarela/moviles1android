@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.pdm123"
-        minSdk = 26
-        targetSdk = 34
+        minSdk = 24
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -45,7 +45,10 @@ android {
         }
     }
 }
+/*
 
+Aqui se agregan las dependencias del proyecto
+ */
 dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
@@ -64,7 +67,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation ("androidx.compose.material:material-icons-extended:compose_ui_version")
-    implementation("androidx.navigation:navigation-compose:2.7.0")
-    implementation("androidx.compose.material:material:1.4.2")
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+    implementation ("androidx.navigation:navigation-compose:2.7.0")
+    implementation ("androidx.compose.material:material:1.4.2")
+
 }

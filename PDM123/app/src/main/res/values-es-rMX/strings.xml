@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Móviles 1</string>
+    <string name="first_partial">Primer parcial</string>
+    <string name="second_partial">Segundo parcial</string>
+    <string name="third_partial">Tercer parcial</string>
+    <string name="padel_score">Puntuacion padel</string>
+    <string name="even_or_odd">Par o non</string>
+</resources>

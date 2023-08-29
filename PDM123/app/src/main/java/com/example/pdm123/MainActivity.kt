@@ -13,88 +13,110 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.runtime.*
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
+import androidx.compose.runtime.*
+import androidx.compose.ui.res.stringResource
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pdm123.firstpartial.EvenOrOddView
+import com.example.pdm123.firstpartial.FirstPartialView
+import com.example.pdm123.firstpartial.PadelScoreView
+import com.example.pdm123.navigation.NavBarItems
+import com.example.pdm123.navigation.NavRoutes
+import com.example.pdm123.secondpartial.SecondPartialView
+import com.example.pdm123.thirdpartial.ThirdPartialView
 import com.example.pdm123.ui.theme.PDM123Theme
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             PDM123Theme {
                 // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                        MainScreen()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    MainScreen()
                 }
             }
         }
     }
 }
 
-@Composable
 @OptIn(ExperimentalMaterial3Api::class)
-fun MainScreen(){
+@Composable
+fun MainScreen() {
     val navController = rememberNavController()
+
     Scaffold(
-        topBar = { TopAppBar(title = { Text(text = "ulsa chihuahua") })},
-        content = { it
+        topBar = { TopAppBar(title = { Text("ULSA CHIHUAHUA") }) },
+        content = {
+            it
             NavigationHost(navController = navController)
         },
-        bottomBar = {BottomNavigationBar(navController = navController)}
+        bottomBar = { BottomNavigationBar(navController = navController) }
     )
 
 }
 
-/**
- * Esta funcion va a ser encargada de manejar los tabs de la aplicacion
+/*
+Esta funcion va a ser encargada de manejar los tabs de la aplicacion
  */
 @Composable
-fun NavigationHost(navController: NavHostController){
-    NavHost(navController = navController, startDestination = NavRoutes.firstPartial.route){
-        composable(NavRoutes.firstPartial.route){
-            FirstPartial()
+fun NavigationHost(navController: NavHostController) {
+    NavHost(navController = navController, startDestination = NavRoutes.FirstPartialView.route) {
+        composable(NavRoutes.FirstPartialView.route) {
+            FirstPartialView(navController = navController)
         }
-        composable(NavRoutes.secondPartial.route){
-            SecondPartial()
+        composable(NavRoutes.SecondPartialView.route) {
+            SecondPartialView()
         }
-        composable(NavRoutes.thirdPartial.route){
-            ThirdPartial()
+        composable(NavRoutes.ThirdPartialView.route) {
+            ThirdPartialView()
+        }
+        composable(NavRoutes.PadelScoreView.route) {
+            PadelScoreView()
+        }
+        composable(NavRoutes.EvenOrOddView.route) {
+            EvenOrOddView()
         }
     }
-}
-@Composable
-fun BottomNavigationBar(navController: NavHostController){
 
-    BottomNavigation{
+}
+
+@Composable
+fun BottomNavigationBar(navController: NavController) {
+    BottomNavigation {
         val backStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = backStackEntry?.destination?.route
 
-        NavBarItems.NavBarItems.forEach{navItem ->
+        NavBarItems.NavBarItems.forEach { navItem ->
 
             BottomNavigationItem(
                 selected = currentRoute == navItem.route,
                 onClick = {
-                    navController.navigate(navItem.route){
-                        popUpTo(navController.graph.findStartDestination().id){
+                    navController.navigate(navItem.route) {
+                        popUpTo(navController.graph.findStartDestination().id) {
                             saveState = true
                         }
                         launchSingleTop = true
                         restoreState = true
                     }
                 },
+
                 icon = {
-                    Icon(imageVector = navItem.image,
-                        contentDescription = navItem.title)
+                    Icon(
+                        imageVector = navItem.image,
+                        contentDescription = navItem.title.toString()
+                    )
                 },
                 label = {
-                    Text(text = navItem.title)
+                    Text(text = stringResource(id = navItem.title))
                 }
             )
 
@@ -102,10 +124,10 @@ fun BottomNavigationBar(navController: NavHostController){
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    PDM123Theme {
-//        MainScreen()
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun DefaultPreview() {
+    PDM123Theme {
+        MainScreen()
+    }
+}

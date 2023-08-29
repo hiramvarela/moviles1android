@@ -1,24 +1,25 @@
-package com.example.pdm123
+package com.example.pdm123.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import com.example.pdm123.R
 
 object NavBarItems {
     val NavBarItems = listOf(
         BarItem(
-            title = "Primer parcial",
+            title = R.string.first_partial,
             image = Icons.Filled.Home,
-            route = "firstpartial"
+            route = "FirstPartial"
         ),
         BarItem(
-            title = "Segundo parcial",
+            title = R.string.second_partial,
             image = Icons.Filled.Airplay,
-            route = "secondpartial"
+            route = "SecondPartial"
         ),
         BarItem(
-            title = "Tercer parcial",
+            title = R.string.third_partial,
             image = Icons.Filled.Star,
-            route = "thirdpartial"
+            route = "ThirdPartial"
         )
     )
 
