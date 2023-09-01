@@ -10,4 +10,5 @@ sealed class NavRoutes(val route: String) {
     object ThirdPartialView : NavRoutes("ThirdPartial")
     object PadelScoreView : NavRoutes("PadelScore")
     object EvenOrOddView : NavRoutes("EvenOrOdd")
+    object CardsView : NavRoutes("Cards")
 }

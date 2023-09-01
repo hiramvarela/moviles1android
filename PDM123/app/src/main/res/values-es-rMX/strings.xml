@@ -6,4 +6,13 @@
     <string name="third_partial">Tercer parcial</string>
     <string name="padel_score">Puntuacion padel</string>
     <string name="even_or_odd">Par o non</string>
+    <string name="calculate">Calcular</string>
+    <string name="even">El numero es par</string>
+    <string name="odd">El numero es impar</string>
+    <string name="number">Porfavor teclea un numero</string>
+    <string name="zero">Porfavor teclea un numero</string>
+    <string name="cards">Cartas</string>
+    <string name="flip">Voltear carta</string>
+    <string name="random">Carta al azar</string>
+
 </resources>
