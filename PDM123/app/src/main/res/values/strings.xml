@@ -13,5 +13,13 @@
     <string name="cards">Cards</string>
     <string name="flip">Flip card</string>
     <string name="random">Random Card</string>
+    <string name="numbercomparator">Number Comparator</string>
+    <string name="comparator">Comparator</string>
+    <string name="num1">Num 1</string>
+    <string name="num2">Num 2</string>
+    <string name="num3">Num 3</string>
+    <string name="type3numbers">Please type 3 different numbers</string>
+    <string name="typenumbers">Please type 3 numbers</string>
+
 
 </resources>

@@ -14,5 +14,12 @@
     <string name="cards">Cartas</string>
     <string name="flip">Voltear carta</string>
     <string name="random">Carta al azar</string>
+    <string name="numbercomparator">Comparar numeros</string>
+    <string name="comparator">Comparar</string>
+    <string name="num1">Numero 1</string>
+    <string name="num2">Numero 2</string>
+    <string name="num3">Numero 3</string>
+    <string name="type3numbers">Porfavor teclea 3 numeros diferentes</string>
+    <string name="typenumbers">Porfavor teclea 3 numeros</string>
 
 </resources>
