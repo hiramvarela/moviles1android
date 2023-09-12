@@ -34,6 +34,8 @@ import com.example.pdm123.firstpartial.FirstPartialView
 import com.example.pdm123.firstpartial.NumberComparatorView
 import com.example.pdm123.firstpartial.NumberComparatorViewModel
 import com.example.pdm123.firstpartial.PadelScoreView
+import com.example.pdm123.firstpartial.SalonView
+import com.example.pdm123.firstpartial.SalonViewModel
 import com.example.pdm123.navigation.NavBarItems
 import com.example.pdm123.navigation.NavRoutes
 import com.example.pdm123.secondpartial.SecondPartialView
@@ -98,6 +100,9 @@ fun NavigationHost(navController: NavHostController) {
         }
         composable(NavRoutes.NumberComparator.route) {
             NumberComparatorView(navController = navController, viewModel = NumberComparatorViewModel())
+        }
+        composable(NavRoutes.Salon.route) {
+            SalonView(navController = navController, viewModel = SalonViewModel())
         }
     }
 
