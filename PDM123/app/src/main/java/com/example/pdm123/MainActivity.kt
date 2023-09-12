@@ -31,6 +31,8 @@ import com.example.pdm123.firstpartial.EvenOddView
 
 import com.example.pdm123.firstpartial.EvenOddViewModel
 import com.example.pdm123.firstpartial.FirstPartialView
+import com.example.pdm123.firstpartial.NumberComparatorView
+import com.example.pdm123.firstpartial.NumberComparatorViewModel
 import com.example.pdm123.firstpartial.PadelScoreView
 import com.example.pdm123.navigation.NavBarItems
 import com.example.pdm123.navigation.NavRoutes
@@ -93,6 +95,9 @@ fun NavigationHost(navController: NavHostController) {
         }
         composable(NavRoutes.CardsView.route) {
             CardsView(navController = navController, viewModel = CardsViewModel())
+        }
+        composable(NavRoutes.NumberComparator.route) {
+            NumberComparatorView(navController = navController, viewModel = NumberComparatorViewModel())
         }
     }
 
