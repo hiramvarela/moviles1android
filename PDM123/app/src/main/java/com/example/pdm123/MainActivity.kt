@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material3.MaterialTheme
@@ -16,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavController
@@ -23,9 +25,17 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pdm123.firstpartial.EvenOrOddView
+import com.example.pdm123.firstpartial.CardsView
+import com.example.pdm123.firstpartial.CardsViewModel
+import com.example.pdm123.firstpartial.EvenOddView
+
+import com.example.pdm123.firstpartial.EvenOddViewModel
 import com.example.pdm123.firstpartial.FirstPartialView
+import com.example.pdm123.firstpartial.NumberComparatorView
+import com.example.pdm123.firstpartial.NumberComparatorViewModel
 import com.example.pdm123.firstpartial.PadelScoreView
+import com.example.pdm123.firstpartial.SalonView
+import com.example.pdm123.firstpartial.SalonViewModel
 import com.example.pdm123.navigation.NavBarItems
 import com.example.pdm123.navigation.NavRoutes
 import com.example.pdm123.secondpartial.SecondPartialView
@@ -83,7 +93,16 @@ fun NavigationHost(navController: NavHostController) {
             PadelScoreView()
         }
         composable(NavRoutes.EvenOrOddView.route) {
-            EvenOrOddView()
+            EvenOddView(navController = navController, viewModel = EvenOddViewModel())
+        }
+        composable(NavRoutes.CardsView.route) {
+            CardsView(navController = navController, viewModel = CardsViewModel())
+        }
+        composable(NavRoutes.NumberComparator.route) {
+            NumberComparatorView(navController = navController, viewModel = NumberComparatorViewModel())
+        }
+        composable(NavRoutes.Salon.route) {
+            SalonView(navController = navController, viewModel = SalonViewModel())
         }
     }
 
