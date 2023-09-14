@@ -101,12 +101,12 @@ fun SalonView(navController: NavController, viewModel: SalonViewModel) {
         Row {
 
     //Se agregan los textos con sus respectivas variables
-            Text(text = "${barbaCountResult}")
+            Text(text = "${peloCountResult}")
 
             Spacer(modifier = Modifier.width(125.dp))
 
 
-            Text(text = "${peloCountResult}")
+            Text(text = "${barbaCountResult}")
 
 
             Spacer(modifier = Modifier.width(125.dp))
