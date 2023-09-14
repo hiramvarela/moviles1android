@@ -27,7 +27,10 @@ import com.example.pdm123.R
 
 @Composable
 fun SalonView(navController: NavController, viewModel: SalonViewModel) {
-//    val total by viewModel.getTotal().observeAsState(0.0)
+    val barbaCountResult by viewModel.getBarbaCount().observeAsState(0)
+    val peloCountResult by viewModel.getPeloCount().observeAsState(0)
+    val peloBarbaCountResult by viewModel.getPeloBarbaCount().observeAsState(0)
+    val totalCostResult by viewModel.getTotalCost().observeAsState(0)
 
 
     Column(
@@ -37,8 +40,27 @@ fun SalonView(navController: NavController, viewModel: SalonViewModel) {
 
         ) {
         Row {
-            Button(onClick = {
 
+            //Se agregan los textos con sus respectivas variables
+            Text(text = "$350")
+
+            Spacer(modifier = Modifier.width(125.dp))
+
+
+            Text(text = "$450")
+
+
+            Spacer(modifier = Modifier.width(125.dp))
+
+            Text(text = "$900g")
+
+
+        }
+        Spacer(modifier = Modifier.height(15.dp))
+        Row {
+            //Boton con imagen de barba
+            Button(onClick = {
+                viewModel.incrementBarba()
 
             }, modifier = Modifier.padding(8.dp)) {
                 Image(
@@ -49,7 +71,9 @@ fun SalonView(navController: NavController, viewModel: SalonViewModel) {
                         .height(70.dp)
                 )
             }
+            //Boton con imagen de corte
             Button(onClick = {
+                viewModel.incrementPelo()
             }, modifier = Modifier.padding(8.dp)) {
                 Image(
                     painter = painterResource(id = R.drawable.corte),
@@ -59,8 +83,9 @@ fun SalonView(navController: NavController, viewModel: SalonViewModel) {
                         .height(70.dp)
                 )
             }
+            //Boton con imagen de corte y barba
             Button(onClick = {
-//                viewModel.getBackCards()
+                viewModel.incrementPeloBarba()
             }, modifier = Modifier.padding(8.dp)) {
                 Image(
                     painter = painterResource(id = R.drawable.corteybarba),
@@ -75,27 +100,24 @@ fun SalonView(navController: NavController, viewModel: SalonViewModel) {
         }
         Row {
 
-
-            Text(text = "0")
-
-            Spacer(modifier = Modifier.width(125.dp))
-
-
-            Text(text = "0")
-
+    //Se agregan los textos con sus respectivas variables
+            Text(text = "${barbaCountResult}")
 
             Spacer(modifier = Modifier.width(125.dp))
 
-            Text(text = "0")
+
+            Text(text = "${peloCountResult}")
+
+
+            Spacer(modifier = Modifier.width(125.dp))
+
+            Text(text = "${peloBarbaCountResult}")
 
 
         }
         Spacer(modifier = Modifier.height(50.dp))
         Row {
-            Text(text = "Total")
-        }
-        Row {
-//            Text(text = total.toString())
+            Text(text = "Total: $$totalCostResult")
         }
     }
 }

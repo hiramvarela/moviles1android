@@ -24,13 +24,14 @@ fun NumberComparatorView(viewModel: NumberComparatorViewModel,navController: Nav
     var number1 by remember { mutableStateOf("") }
     var number2 by remember { mutableStateOf("") }
     var number3 by remember { mutableStateOf("") }
-    val compareState by viewModel.getResult().observeAsState("")
+    val compareState by viewModel.getResult().observeAsState(0)
 
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Text(text = stringResource(id = R.string.typenumbers))
         TextField(
             value = number1,
             onValueChange = { newValue -> number1 = newValue },
@@ -63,6 +64,6 @@ fun NumberComparatorView(viewModel: NumberComparatorViewModel,navController: Nav
             Text(stringResource(id = R.string.comparator))
         }
 
-        Text(text = compareState)
+        Text(text = stringResource(id = R.string.min)+"${compareState}")
     }
 }
