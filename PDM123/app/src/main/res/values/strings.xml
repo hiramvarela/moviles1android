@@ -21,6 +21,10 @@
     <string name="min">Min: </string>
     <string name="type3numbers">Please type 3 different numbers</string>
     <string name="typenumbers">Please type 3 numbers</string>
+    <string name="actual_production">Actual Production</string>
+    <string name="total_production">Total Production</string>
+    <string name="apples">Apples</string>
+    <string name="percetage">Percentage</string>
 
 
 </resources>

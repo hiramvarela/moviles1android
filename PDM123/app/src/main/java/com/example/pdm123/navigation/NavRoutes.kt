@@ -14,4 +14,5 @@ sealed class NavRoutes(val route: String) {
 
     object NumberComparator : NavRoutes("Number")
     object Salon : NavRoutes("Salon")
+    object Apples : NavRoutes("Apples")
 }

@@ -43,5 +43,8 @@ fun FirstPartialView(navController : NavController) {
         Button(onClick = {navController.navigate(route = "Salon")}) {
             Text(text = "Salon")
         }
+        Button(onClick = {navController.navigate(route = "Apples")}) {
+            Text(text = stringResource(id = R.string.apples))
+        }
     }
 }

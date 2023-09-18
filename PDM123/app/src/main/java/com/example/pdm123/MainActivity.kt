@@ -25,6 +25,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pdm123.firstpartial.ApplesView
+import com.example.pdm123.firstpartial.ApplesViewModel
 import com.example.pdm123.firstpartial.CardsView
 import com.example.pdm123.firstpartial.CardsViewModel
 import com.example.pdm123.firstpartial.EvenOddView
@@ -103,6 +105,9 @@ fun NavigationHost(navController: NavHostController) {
         }
         composable(NavRoutes.Salon.route) {
             SalonView(navController = navController, viewModel = SalonViewModel())
+        }
+        composable(NavRoutes.Apples.route) {
+            ApplesView(navController = navController, viewModel = ApplesViewModel())
         }
     }
 
