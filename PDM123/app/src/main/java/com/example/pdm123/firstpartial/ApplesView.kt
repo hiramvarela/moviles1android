@@ -23,10 +23,10 @@ import androidx.navigation.NavController
 
 @Composable
 fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
-    val totalProdRes by viewModel.totalProduction
-    val actualProdRes by viewModel.actualProduction
-    val percentageRes by viewModel.porcentaje
-    val context = LocalContext.current
+    val totalproducto by viewModel.totalProduccion
+    val actualproducto by viewModel.actualProduccion
+    val porcentaje by viewModel.porcentaje
+    val contexto = LocalContext.current
 
 
     var backgroundColor by remember { mutableStateOf(Color.Transparent) }
@@ -68,8 +68,8 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
             )
 
             TextField(
-                value = viewModel.currentTotalProduction.value.toString(),
-                onValueChange = { viewModel.currentTotalProduction.value = it.toIntOrNull() ?: 0 },
+                value = viewModel.actualtotal.value.toString(),
+                onValueChange = { viewModel.actualtotal.value = it.toIntOrNull() ?: 0 },
                 keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Number),
                 modifier = Modifier
                     .width(100.dp)
@@ -90,7 +90,7 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
                     .height(50.dp)
                     .width(50.dp)
                     .clickable {
-                        viewModel.calculateTotalProdToast(context)
+                        viewModel.calculateTotalProdToast(contexto)
                     }
             )
 
@@ -107,9 +107,9 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
                 modifier = Modifier.padding(15.dp)
             )
             TextField(
-                value = viewModel.currentActualProduction.value.toString(),
+                value = viewModel.actualproduccion.value.toString(),
                 onValueChange = {
-                    viewModel.currentActualProduction.value = it.toIntOrNull() ?: 0
+                    viewModel.actualproduccion.value = it.toIntOrNull() ?: 0
                 },
                 modifier = Modifier
                     .width(100.dp)
@@ -126,7 +126,7 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
                     .height(50.dp)
                     .width(50.dp)
                     .clickable {
-                        viewModel.calculateActualProdToast(context)
+                        viewModel.calculateActualProdToast(contexto)
                     }
             )
         }
@@ -138,20 +138,20 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
             horizontalArrangement = Arrangement.Center
         ) {
             Button(
-                onClick = { viewModel.add5() },
+                onClick = { viewModel.add(5) },
             ) {
                 Text(text = "+5")
             }
             Spacer(modifier = Modifier.width(16.dp))
-            Button(onClick = { viewModel.add15() }) {
+            Button(onClick = { viewModel.add(15) }) {
                 Text(text = "+15")
             }
             Spacer(modifier = Modifier.width(16.dp))
-            Button(onClick = { viewModel.add30() }) {
+            Button(onClick = { viewModel.add(30) }) {
                 Text(text = "+30")
             }
             Spacer(modifier = Modifier.width(16.dp))
-            Button(onClick = { viewModel.add50() }) {
+            Button(onClick = { viewModel.add(50) }) {
                 Text(text = "+50")
             }
         }
@@ -162,12 +162,12 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
                 .wrapContentSize(Alignment.Center),
             horizontalArrangement = Arrangement.Center
         ) {
-            Spacer(modifier = Modifier.width(25.dp))
+            Spacer(modifier = Modifier.height(50.dp))
             Text(
                 text = stringResource(id = R.string.percetage),
                 modifier = Modifier.padding(15.dp)
             )
-            Text(text = "${percentageRes}", modifier = Modifier.padding(15.dp))
+            Text(text = "${porcentaje}", modifier = Modifier.padding(15.dp))
             Spacer(modifier = Modifier.height(50.dp))
             Row(
                 modifier = Modifier
@@ -175,10 +175,12 @@ fun ApplesView(navController: NavController, viewModel: ApplesViewModel) {
                     .wrapContentSize(Alignment.Center),
                 horizontalArrangement = Arrangement.Center
             ) {
-                Button(onClick = { viewModel.calculatePercentage(totalProdRes, actualProdRes) }) {
+                Button(onClick = { viewModel.calculatePercentage(totalproducto, actualproducto) }) {
                     Text(text = "Calcular")
                 }
-
+                if (porcentaje > 70) {
+                    backgroundColor = Color.Red
+                }
             }
         }
     }

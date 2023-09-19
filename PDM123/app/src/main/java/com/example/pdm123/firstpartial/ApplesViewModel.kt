@@ -7,47 +7,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 
 class ApplesViewModel : ViewModel() {
-    val currentTotalProduction = mutableStateOf(0)
-    val currentActualProduction = mutableStateOf(0)
+    val actualtotal= mutableStateOf(0)
+    val actualproduccion = mutableStateOf(0)
     val porcentaje = mutableStateOf(0f)
 
-    val totalProduction: State<Int> = currentTotalProduction
-    val actualProduction: State<Int> = currentActualProduction
+    val totalProduccion: State<Int> = actualtotal
+    val actualProduccion: State<Int> = actualproduccion
 
     val estado= mutableStateOf<UIState>(UIState.Idle)
 
-    fun add5() {
+    fun add(numero : Int){
         if (estado.value == UIState.Idle) {
             estado.value = UIState.Adding5
-            currentActualProduction.value += 5
-            calculatePercentage(currentTotalProduction.value, currentActualProduction.value)
-            estado.value = UIState.Idle
-        }
-    }
-
-    fun add15() {
-        if (estado.value == UIState.Idle) {
-            estado.value = UIState.Adding15
-            currentActualProduction.value += 15
-            calculatePercentage(currentTotalProduction.value, currentActualProduction.value)
-            estado.value = UIState.Idle
-        }
-    }
-
-    fun add30() {
-        if (estado.value == UIState.Idle) {
-            estado.value = UIState.Adding30
-            currentActualProduction.value += 30
-            calculatePercentage(currentTotalProduction.value, currentActualProduction.value)
-            estado.value = UIState.Idle
-        }
-    }
-
-    fun add50() {
-        if (estado.value == UIState.Idle) {
-            estado.value = UIState.Adding50
-            currentActualProduction.value += 50
-            calculatePercentage(currentTotalProduction.value, currentActualProduction.value)
+            actualproduccion.value += numero
+            calculatePercentage(totalProduccion.value, actualproduccion.value)
             estado.value = UIState.Idle
         }
     }
@@ -71,7 +44,7 @@ class ApplesViewModel : ViewModel() {
     fun calculateTotalProdToast(context: Context) {
         if (estado.value == UIState.Idle) {
             estado.value = UIState.CalculatingTotalProdToast
-            val total = currentTotalProduction.value
+            val total = totalProduccion.value
             val result = total * 80
             val toastMessage = "$result manzanas"
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show()
@@ -82,7 +55,7 @@ class ApplesViewModel : ViewModel() {
     fun calculateActualProdToast(context: Context) {
         if (estado.value == UIState.Idle) {
             estado.value = UIState.CalculatingActualProdToast
-            val actual = currentActualProduction.value
+            val actual = actualproduccion.value
             val result = actual * 80
             val toastMessage = "$result manzanas"
             Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show()
