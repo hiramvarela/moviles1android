@@ -70,6 +70,13 @@ dependencies {
     implementation ("androidx.navigation:navigation-compose:2.7.0")
     implementation ("androidx.compose.material:material:1.4.2")
     implementation("com.airbnb.android:lottie-compose:6.0.1")
+    implementation ("com.google.accompanist:accompanist-pager:0.12.0")
     implementation ("androidx.compose.runtime:runtime-livedata:compose_ui_version")
+
+
+    implementation ("androidx.camera:camera-camera2:1.3.0-alpha04")
+    implementation ("androidx.camera:camera-lifecycle:1.3.0-alpha04")
+    implementation ("androidx.camera:camera-view:1.3.0-alpha04")
+    implementation ("com.google.mlkit:barcode-scanning:17.0.3")
 
 }

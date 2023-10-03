@@ -5,6 +5,7 @@ package com.example.pdm123.navigation
  */
 
 sealed class NavRoutes(val route: String) {
+    object MainActivity : NavRoutes("MainActivity")
     object FirstPartialView : NavRoutes("FirstPartial")
     object SecondPartialView : NavRoutes("SecondPartial")
     object ThirdPartialView : NavRoutes("ThirdPartial")
@@ -15,4 +16,6 @@ sealed class NavRoutes(val route: String) {
     object NumberComparator : NavRoutes("Number")
     object Salon : NavRoutes("Salon")
     object Apples : NavRoutes("Apples")
+    object Qr : NavRoutes("Qr")
+    object Lists : NavRoutes("Lists")
 }
